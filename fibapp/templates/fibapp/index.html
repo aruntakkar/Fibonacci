@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Fibonacci Number</title>
+  <link rel="stylesheet" href="{% static "css/index.css" %}">
+</head>
+
+<body>
+  <div class="container text-center">
+    <h2>TO GET THE FIBONACCI SERIES</h2>
+    <p>{{ error }}</p>
+    <form action="/fibapp/index/" method="post">
+      {% csrf_token %}
+      <input type="number" placeholder="Enter number to get series" name="number_count" required="autofocus">
+      <button type="submit">Submit</button>
+    </form>
+    <p>{{ data.fib_list }}</p>
+    <p>{{ data.time_taken }}</p>
+  </div>
+</body>
+
+</html>
